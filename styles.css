@@ -1,4 +1,4 @@
-/* General Body Style */
+/* General Body Styling */
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -9,30 +9,101 @@ body {
     min-height: 100vh;
 }
 
-/* Navigation Bar */
+/* Hero Section */
+.hero {
+    background: linear-gradient(120deg, #ff6f00, #1e1e1e);
+    color: white;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
 .nav-bar {
-    background: linear-gradient(90deg, #ff6f00, #ff8c1a);
-    padding: 15px 20px;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 10;
 }
 
 .nav-bar h1 {
     margin: 0;
-    color: #1e1e1e;
     font-size: 28px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-/* Container for Tabs and Content */
-.container {
+.cta-button {
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    color: #ff6f00;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffe0b3;
+}
+
+.main-showcase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.showcase-content {
+    flex: 1;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.showcase-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.showcase-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.showcase-button {
+    padding: 10px 20px;
+    background-color: #ff6f00;
+    color: #1e1e1e;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.showcase-button:hover {
+    transform: scale(1.05);
+}
+
+.showcase-image img {
+    max-width: 500px;
+    height: auto;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Tabs Section */
+.content-container {
     display: flex;
     flex: 1;
     height: 100%;
+    margin-top: 20px;
 }
 
-/* Left Tabs Section */
 .left-tabs {
     width: 220px;
     background-color: #333;
@@ -66,7 +137,6 @@ body {
     transform: translateX(5px);
 }
 
-/* Main Content Section */
 .main-content {
     flex: 1;
     padding: 30px;
@@ -87,33 +157,4 @@ body {
 
 .main-content p {
     line-height: 1.6;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .left-tabs {
-        width: 100%;
-        display: flex;
-        overflow-x: auto;
-    }
-
-    .left-tabs ul {
-        display: flex;
-        width: 100%;
-    }
-
-    .left-tabs li {
-        flex: 1;
-        text-align: center;
-        border-right: 1px solid #444;
-        border-bottom: none;
-    }
-
-    .left-tabs li:last-child {
-        border-right: none;
-    }
 }
