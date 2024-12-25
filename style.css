@@ -8,6 +8,11 @@ body {
     overflow: hidden;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -144,9 +149,4 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
-}
-
-/* Smooth scrolling and transition effects */
-html {
-    scroll-behavior: smooth;
 }

@@ -2,6 +2,7 @@
 const canvas = document.getElementById('heroCanvas');
 const ctx = canvas.getContext('2d');
 
+// Adjust canvas size based on window dimensions
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -22,6 +23,7 @@ window.addEventListener('resize', () => {
     initParticles();
 });
 
+// Particle class definition
 class Particle {
     constructor(x, y, size, color) {
         this.x = x;
@@ -43,9 +45,11 @@ class Particle {
         this.x += this.velocityX;
         this.y += this.velocityY;
 
+        // Bounce particles off the edges
         if (this.x < 0 || this.x > canvas.width) this.velocityX *= -1;
         if (this.y < 0 || this.y > canvas.height) this.velocityY *= -1;
 
+        // Draw a line to the mouse if it gets close enough
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -62,6 +66,7 @@ class Particle {
     }
 }
 
+// Initialize particles
 function initParticles() {
     particlesArray = [];
     for (let i = 0; i < 100; i++) {
@@ -73,6 +78,7 @@ function initParticles() {
     }
 }
 
+// Animation loop
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
