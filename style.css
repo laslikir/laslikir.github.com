@@ -45,7 +45,7 @@ body {
 
 .cta-button {
     padding: 10px 20px;
-    background-color: #5c6bc0; /* Electric Blue */
+    background-color: #9c27b0; /* Vibrant Purple */
     color: #1e1e1e;
     border: none;
     border-radius: 5px;
@@ -55,7 +55,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #3f51b5; /* Darker Blue on hover */
+    background-color: #7b1fa2; /* Darker Purple on hover */
 }
 
 .showcase-content {
@@ -79,7 +79,7 @@ body {
 
 .showcase-button {
     padding: 12px 24px;
-    background-color: #5c6bc0; /* Electric Blue */
+    background-color: #9c27b0; /* Vibrant Purple */
     color: #1e1e1e;
     border: none;
     border-radius: 5px;
@@ -109,11 +109,11 @@ body {
 }
 
 .left-tabs li:hover {
-    background-color: #5c6bc0; /* Electric Blue on hover */
+    background-color: #9c27b0; /* Vibrant Purple on hover */
 }
 
 .left-tabs li.active {
-    background-color: #3f51b5; /* Active tab electric blue */
+    background-color: #7b1fa2; /* Active tab deeper purple */
 }
 
 /* Main Content Area */
