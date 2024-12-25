@@ -1,32 +1,43 @@
+/* General Body Style */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #1e1e1e;
     color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* Navigation Bar */
 .nav-bar {
-    background-color: #ff6f00;
-    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff6f00, #ff8c1a);
+    padding: 15px 20px;
     text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .nav-bar h1 {
     margin: 0;
     color: #1e1e1e;
-    font-size: 24px;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
+/* Container for Tabs and Content */
 .container {
     display: flex;
-    height: calc(100vh - 50px);
+    flex: 1;
+    height: 100%;
 }
 
+/* Left Tabs Section */
 .left-tabs {
-    width: 200px;
+    width: 220px;
     background-color: #333;
     padding: 10px 0;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
 }
 
 .left-tabs ul {
@@ -41,26 +52,68 @@ body {
     cursor: pointer;
     border-bottom: 1px solid #444;
     text-align: left;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .left-tabs li.active {
     background-color: #ff6f00;
     color: #1e1e1e;
+    font-weight: bold;
 }
 
 .left-tabs li:hover {
     background-color: #ff8c1a;
+    transform: translateX(5px);
 }
 
+/* Main Content Section */
 .main-content {
     flex: 1;
-    padding: 20px;
+    padding: 30px;
     background-color: #2a2a2a;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
+    transition: background-color 0.3s ease;
 }
 
 .main-content h2 {
     margin-top: 0;
     color: #ff6f00;
+    font-size: 26px;
+    border-bottom: 2px solid #ff8c1a;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
 }
 
+.main-content p {
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-tabs {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .left-tabs ul {
+        display: flex;
+        width: 100%;
+    }
+
+    .left-tabs li {
+        flex: 1;
+        text-align: center;
+        border-right: 1px solid #444;
+        border-bottom: none;
+    }
+
+    .left-tabs li:last-child {
+        border-right: none;
+    }
+}
