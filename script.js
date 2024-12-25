@@ -54,7 +54,7 @@ class Particle {
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = 'rgba(255, 111, 0, 0.5)';
+            ctx.strokeStyle = 'rgba(92, 107, 192, 0.5)'; // Electric Blue
             ctx.lineWidth = 1;
             ctx.stroke();
             ctx.closePath();
@@ -68,7 +68,7 @@ function initParticles() {
         const size = Math.random() * 3 + 1;
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        const color = 'rgba(255, 111, 0, 1)';
+        const color = 'rgba(92, 107, 192, 1)'; // Electric Blue
         particlesArray.push(new Particle(x, y, size, color));
     }
 }
