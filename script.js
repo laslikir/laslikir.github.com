@@ -54,7 +54,7 @@ class Particle {
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = 'rgba(156, 39, 176, 0.5)'; // Vibrant Purple
+            ctx.strokeStyle = 'rgba(0, 198, 255, 0.5)'; // Neon Blue
             ctx.lineWidth = 1;
             ctx.stroke();
             ctx.closePath();
@@ -68,7 +68,7 @@ function initParticles() {
         const size = Math.random() * 3 + 1;
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        const color = 'rgba(156, 39, 176, 1)'; // Vibrant Purple
+        const color = 'rgba(0, 198, 255, 1)'; // Neon Blue
         particlesArray.push(new Particle(x, y, size, color));
     }
 }
@@ -93,13 +93,8 @@ const mainContent = document.querySelector('.main-content');
 
 tabs.forEach((tab, index) => {
     tab.addEventListener('click', () => {
-        // Remove 'active' class from all tabs
         tabs.forEach((t) => t.classList.remove('active'));
-
-        // Add 'active' class to the clicked tab
         tab.classList.add('active');
-
-        // Update main content based on the clicked tab
         switch (index) {
             case 0:
                 mainContent.innerHTML = `
