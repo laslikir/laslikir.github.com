@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Neural Network
+  // Neural Network Canvas
   const canvas = document.getElementById('neuralCanvas');
   const ctx = canvas.getContext('2d');
 
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function drawNetwork() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw connections
+    // Draw connections between neurons
     neurons.forEach((n1, i) => {
       neurons.slice(i + 1).forEach(n2 => {
         const dist = Math.hypot(n2.x - n1.x, n2.y - n1.y);
@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mouse movement listener
   canvas.addEventListener('mousemove', e => {
     mouse.x = e.offsetX;
     mouse.y = e.offsetY;
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mouse.y = null;
   });
 
+  // Animation loop
   function animate() {
     updateNeurons();
     drawNetwork();
@@ -110,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   animate();
 
-  // Resize canvas dynamically
+  // Resize canvas when window is resized
   window.addEventListener('resize', () => {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
