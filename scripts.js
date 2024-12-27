@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Particle system variables
   let particlesArray = [];
+  const mouse = { x: null, y: null, radius: 100 }; // Define mouse radius for interaction
 
   // Particle class definition
   class Particle {
@@ -22,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
       this.color = color;
       this.velocityX = Math.random() * 2 - 1; // Random velocity
       this.velocityY = Math.random() * 2 - 1;
+      this.originalX = x;
+      this.originalY = y;
     }
 
     // Draw the particle
@@ -34,12 +37,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update the particle position
     update() {
-      this.x += this.velocityX;
-      this.y += this.velocityY;
+      // Attraction or repulsion effect when mouse is nearby
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const forceDirectionX = dx / distance;
+      const forceDirectionY = dy / distance;
+      const maxDistance = mouse.radius;
 
-      // Bounce the particle off the edges
+      // If within range, attract particles
+      if (distance < maxDistance) {
+        if (maxDistance - distance > 10) {
+          this.x += forceDirectionX * 2;  // Move towards mouse
+          this.y += forceDirectionY * 2;
+        }
+      } else {
+        // Move particles back to their original position when mouse is far
+        if (this.x !== this.originalX) {
+          this.x -= (this.x - this.originalX) / 20;
+        }
+        if (this.y !== this.originalY) {
+          this.y -= (this.y - this.originalY) / 20;
+        }
+      }
+
+      // Bounce particles off the edges
       if (this.x < 0 || this.x > canvas.width) this.velocityX *= -1;
       if (this.y < 0 || this.y > canvas.height) this.velocityY *= -1;
+
+      this.x += this.velocityX;
+      this.y += this.velocityY;
     }
   }
 
@@ -74,6 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+  // Mouse interaction: Map mouse position relative to canvas
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = event.clientX - rect.left;
+    mouse.y = event.clientY - rect.top;
+  });
 
   // Animation loop to update and render the particles
   function animate() {
