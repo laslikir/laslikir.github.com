@@ -22,66 +22,85 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // === NEURAL NETWORK VISUALIZATION ===
+  // === INTERACTIVE NEURAL NETWORK ===
   const canvas = document.getElementById('neuralCanvas');
   const ctx = canvas.getContext('2d');
 
-  // Set canvas size
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
 
-  const layers = [
-    { neurons: 4, x: 100 }, // Input layer
-    { neurons: 6, x: 300 }, // Hidden layer 1
-    { neurons: 4, x: 500 }, // Hidden layer 2
-    { neurons: 2, x: 700 }  // Output layer
-  ];
-  const neuronRadius = 15;
+  const neurons = [];
+  const connections = [];
+  const mouse = { x: null, y: null };
 
-  function drawNeuron(x, y) {
-    ctx.beginPath();
-    ctx.arc(x, y, neuronRadius, 0, Math.PI * 2);
-    ctx.fillStyle = '#fff';
-    ctx.strokeStyle = '#333';
-    ctx.lineWidth = 2;
-    ctx.fill();
-    ctx.stroke();
-  }
-
-  function drawConnection(x1, y1, x2, y2) {
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
-    ctx.strokeStyle = 'rgba(50, 50, 50, 0.3)';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-  }
-
-  function drawNeuralNetwork() {
-    const layerPositions = layers.map(layer => {
-      const yOffset = (canvas.height - (layer.neurons * (2 * neuronRadius + 20))) / 2;
-      return Array.from({ length: layer.neurons }, (_, i) => ({
-        x: layer.x,
-        y: yOffset + i * (2 * neuronRadius + 20)
-      }));
+  // Generate neurons
+  for (let i = 0; i < 50; i++) {
+    neurons.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: 4 + Math.random() * 2,
     });
+  }
+
+  // Update neuron positions
+  function updateNeurons() {
+    neurons.forEach(neuron => {
+      neuron.x += neuron.vx;
+      neuron.y += neuron.vy;
+
+      if (neuron.x < 0 || neuron.x > canvas.width) neuron.vx *= -1;
+      if (neuron.y < 0 || neuron.y > canvas.height) neuron.vy *= -1;
+    });
+  }
+
+  // Draw neurons and connections
+  function drawNetwork() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw connections
-    for (let i = 0; i < layerPositions.length - 1; i++) {
-      const currentLayer = layerPositions[i];
-      const nextLayer = layerPositions[i + 1];
-      currentLayer.forEach(neuron => {
-        nextLayer.forEach(nextNeuron => {
-          drawConnection(neuron.x, neuron.y, nextNeuron.x, nextNeuron.y);
-        });
+    neurons.forEach((n1, i) => {
+      neurons.slice(i + 1).forEach(n2 => {
+        const distance = Math.hypot(n2.x - n1.x, n2.y - n1.y);
+
+        if (distance < 120) {
+          ctx.beginPath();
+          ctx.moveTo(n1.x, n1.y);
+          ctx.lineTo(n2.x, n2.y);
+          ctx.strokeStyle = `rgba(50, 50, 50, ${1 - distance / 120})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
       });
-    }
+    });
 
     // Draw neurons
-    layerPositions.flat().forEach(({ x, y }) => {
-      drawNeuron(x, y);
+    neurons.forEach(neuron => {
+      ctx.beginPath();
+      ctx.arc(neuron.x, neuron.y, neuron.radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#333';
+      ctx.fill();
     });
   }
 
-  drawNeuralNetwork();
+  // Mouse interaction
+  canvas.addEventListener('mousemove', e => {
+    mouse.x = e.offsetX;
+    mouse.y = e.offsetY;
+  });
+
+  canvas.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  // Animation loop
+  function animate() {
+    updateNeurons();
+    drawNetwork();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
 });
