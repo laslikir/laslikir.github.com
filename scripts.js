@@ -26,8 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('heroCanvas');
   const ctx = canvas.getContext('2d');
 
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  // Adjust canvas size based on window dimensions
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
 
   let particlesArray = [];
   const mouse = { x: null, y: null };
@@ -99,17 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animate);
   }
 
-  // Mouse interaction
+  // Mouse interaction: Map mouse position relative to canvas
   window.addEventListener('mousemove', (event) => {
-    mouse.x = event.x;
-    mouse.y = event.y;
-  });
-
-  // Resize event
-  window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = event.clientX - rect.left;
+    mouse.y = event.clientY - rect.top;
   });
 
   initParticles();
