@@ -22,6 +22,9 @@ h1, h2, p {
   max-width: 800px;
   z-index: 10; /* Ensure tabs are above the particle canvas */
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Slight black background for the tab content area */
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .tabs {
@@ -33,28 +36,34 @@ h1, h2, p {
 }
 
 .tab {
-  background: rgba(255, 0, 255, 0.7); /* Purple for the tab */
+  background: #ffffff; /* Flat white tab background */
+  color: #333; /* Dark text for contrast */
   padding: 10px 20px;
   margin: 0 5px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .tab:hover {
-  background: rgba(255, 0, 255, 1); /* Darker purple on hover */
+  background: #f0f0f0; /* Light grey hover effect */
+  color: #000; /* Dark text on hover */
 }
 
 .tab.active {
-  background: rgba(255, 0, 255, 1); /* Active tab style */
+  background: #ffffff; /* Active tab stays white */
+  color: #0d0d0d; /* Dark text for active tab */
+  border-bottom: 3px solid #800080; /* Purple bottom border for active tab */
 }
 
 .tab-content {
   display: none;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #222; /* Solid background color for the content */
   border-radius: 5px;
   margin-top: 20px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Add slight shadow for a lifted effect */
 }
 
 .tab-content.active {
