@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('particleCanvas');
   const ctx = canvas.getContext('2d');
-
+  
   // Resize canvas to fill the page
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -107,6 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const rect = canvas.getBoundingClientRect();
     mouse.x = event.clientX - rect.left;
     mouse.y = event.clientY - rect.top;
+  });
+
+  // Tab functionality: Switch between tabs
+  const tabs = document.querySelectorAll('.tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active class from all tabs
+      tabs.forEach(t => t.classList.remove('active'));
+      // Add active class to clicked tab
+      tab.classList.add('active');
+
+      // Hide all tab content
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      // Show content for the clicked tab
+      const activeTab = tab.getAttribute('data-tab');
+      document.getElementById(activeTab).classList.add('active');
+    });
   });
 
   // Animation loop to update and render the particles

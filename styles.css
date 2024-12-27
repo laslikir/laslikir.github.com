@@ -9,23 +9,56 @@ body, html {
   font-family: Arial, sans-serif;
 }
 
-.content {
+h1, h2, p {
+  color: white;
+}
+
+.tabs-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  z-index: 10; /* Ensure tabs are above the particle canvas */
   text-align: center;
-  z-index: 10; /* Ensures content is on top of the canvas */
-  color: white;
 }
 
-h1 {
-  font-size: 3em;
+.tabs {
+  list-style: none;
+  padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
-p {
-  font-size: 1.2em;
+.tab {
+  background: rgba(255, 0, 255, 0.7); /* Purple for the tab */
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+  background: rgba(255, 0, 255, 1); /* Darker purple on hover */
+}
+
+.tab.active {
+  background: rgba(255, 0, 255, 1); /* Active tab style */
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.tab-content.active {
+  display: block;
 }
 
 /* Particle Canvas Styling */
