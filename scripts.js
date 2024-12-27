@@ -1,28 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // === TABS FUNCTIONALITY ===
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const tabIndex = tab.getAttribute('data-tab');
-
-      // Update tabs
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      // Update content
-      contents.forEach(content => {
-        if (content.getAttribute('data-content') === tabIndex) {
-          content.classList.add('active');
-        } else {
-          content.classList.remove('active');
-        }
-      });
-    });
-  });
-
-  // === INTERACTIVE NEURAL NETWORK ===
   const canvas = document.getElementById('neuralCanvas');
   const ctx = canvas.getContext('2d');
 
@@ -30,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   canvas.height = canvas.offsetHeight;
 
   const neurons = [];
-  const connections = [];
   const mouse = { x: null, y: null };
 
   // Generate neurons
@@ -68,7 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
           ctx.beginPath();
           ctx.moveTo(n1.x, n1.y);
           ctx.lineTo(n2.x, n2.y);
-          ctx.strokeStyle = `rgba(50, 50, 50, ${1 - distance / 120})`;
+          const opacity = 1 - distance / 120;
+          ctx.strokeStyle = `rgba(50, 50, 50, ${opacity})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -79,7 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
     neurons.forEach(neuron => {
       ctx.beginPath();
       ctx.arc(neuron.x, neuron.y, neuron.radius, 0, Math.PI * 2);
-      ctx.fillStyle = '#333';
+      const gradient = ctx.createRadialGradient(
+        neuron.x,
+        neuron.y,
+        neuron.radius / 2,
+        neuron.x,
+        neuron.y,
+        neuron.radius
+      );
+      gradient.addColorStop(0, '#333');
+      gradient.addColorStop(1, '#fff');
+      ctx.fillStyle = gradient;
       ctx.fill();
     });
   }
@@ -88,6 +74,17 @@ document.addEventListener('DOMContentLoaded', () => {
   canvas.addEventListener('mousemove', e => {
     mouse.x = e.offsetX;
     mouse.y = e.offsetY;
+
+    neurons.forEach(neuron => {
+      const dx = neuron.x - mouse.x;
+      const dy = neuron.y - mouse.y;
+      const distance = Math.hypot(dx, dy);
+
+      if (distance < 100) {
+        neuron.vx += dx / 5000;
+        neuron.vy += dy / 5000;
+      }
+    });
   });
 
   canvas.addEventListener('mouseleave', () => {
@@ -103,4 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   animate();
+
+  // Resize canvas dynamically
+  window.addEventListener('resize', () => {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  });
 });
