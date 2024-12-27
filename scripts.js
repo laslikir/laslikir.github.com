@@ -23,98 +23,95 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Neural Network Canvas
-  const canvas = document.getElementById('neuralCanvas');
+  const canvas = document.getElementById('heroCanvas');
   const ctx = canvas.getContext('2d');
 
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-  const neurons = [];
+  let particlesArray = [];
   const mouse = { x: null, y: null };
 
-  // Generate neurons
-  for (let i = 0; i < 50; i++) {
-    neurons.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-      radius: 4 + Math.random() * 2,
-    });
-  }
+  // Particle class definition
+  class Particle {
+    constructor(x, y, size, color) {
+      this.x = x;
+      this.y = y;
+      this.size = size;
+      this.color = color;
+      this.velocityX = Math.random() * 2 - 1;
+      this.velocityY = Math.random() * 2 - 1;
+    }
 
-  function updateNeurons() {
-    neurons.forEach(neuron => {
-      neuron.x += neuron.vx;
-      neuron.y += neuron.vy;
-
-      if (neuron.x < 0 || neuron.x > canvas.width) neuron.vx *= -1;
-      if (neuron.y < 0 || neuron.y > canvas.height) neuron.vy *= -1;
-
-      // Mouse interaction
-      if (mouse.x && mouse.y) {
-        const dx = neuron.x - mouse.x;
-        const dy = neuron.y - mouse.y;
-        const dist = Math.hypot(dx, dy);
-
-        if (dist < 100) {
-          neuron.vx += dx / 5000;
-          neuron.vy += dy / 5000;
-        }
-      }
-    });
-  }
-
-  function drawNetwork() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw connections between neurons
-    neurons.forEach((n1, i) => {
-      neurons.slice(i + 1).forEach(n2 => {
-        const dist = Math.hypot(n2.x - n1.x, n2.y - n1.y);
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.moveTo(n1.x, n1.y);
-          ctx.lineTo(n2.x, n2.y);
-          ctx.strokeStyle = `rgba(50, 50, 50, ${1 - dist / 120})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      });
-    });
-
-    // Draw neurons
-    neurons.forEach(neuron => {
+    draw() {
       ctx.beginPath();
-      ctx.arc(neuron.x, neuron.y, neuron.radius, 0, Math.PI * 2);
-      ctx.fillStyle = '#333';
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
       ctx.fill();
-    });
+    }
+
+    update() {
+      this.x += this.velocityX;
+      this.y += this.velocityY;
+
+      // Bounce particles off the edges
+      if (this.x < 0 || this.x > canvas.width) this.velocityX *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.velocityY *= -1;
+
+      // Draw a line to the mouse if it gets close enough
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 150) {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = 'rgba(0, 198, 255, 0.5)'; // Neon Blue
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.closePath();
+      }
+    }
   }
 
-  // Mouse movement listener
-  canvas.addEventListener('mousemove', e => {
-    mouse.x = e.offsetX;
-    mouse.y = e.offsetY;
-  });
-
-  canvas.addEventListener('mouseleave', () => {
-    mouse.x = null;
-    mouse.y = null;
-  });
+  // Initialize particles
+  function initParticles() {
+    particlesArray = [];
+    for (let i = 0; i < 100; i++) {
+      const size = Math.random() * 3 + 1;
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const color = 'rgba(0, 198, 255, 1)'; // Neon Blue
+      particlesArray.push(new Particle(x, y, size, color));
+    }
+  }
 
   // Animation loop
   function animate() {
-    updateNeurons();
-    drawNetwork();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particlesArray.forEach((particle) => {
+      particle.draw();
+      particle.update();
+    });
+
     requestAnimationFrame(animate);
   }
 
-  animate();
-
-  // Resize canvas when window is resized
-  window.addEventListener('resize', () => {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+  // Mouse interaction
+  window.addEventListener('mousemove', (event) => {
+    mouse.x = event.x;
+    mouse.y = event.y;
   });
+
+  // Resize event
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initParticles();
+  });
+
+  initParticles();
+  animate();
 });
