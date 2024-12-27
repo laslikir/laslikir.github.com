@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipper Zero Hub</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimalistic Landing Page</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hero">
-        <canvas id="heroCanvas"></canvas>
-        <div class="nav-bar">
-            <h1>Flipper Zero Hub</h1>
-            <button class="cta-button">Learn More</button>
-        </div>
-        <div class="showcase-content">
-            <h2>Unlock the Power of Flipper Zero</h2>
-            <p>The ultimate tool for hackers, engineers, and geeks. Explore projects, resources, and guides to unleash its full potential.</p>
-            <button class="showcase-button">Get Started</button>
-        </div>
+  <header>
+    <div class="logo">Your Logo</div>
+  </header>
+  <div class="hero">
+    <img id="hero-img" src="hero-image.jpg" alt="Neural Network">
+  </div>
+  <div class="content">
+    <div class="tabs">
+      <div class="tab active" data-tab="0">Tab 1</div>
+      <div class="tab" data-tab="1">Tab 2</div>
+      <div class="tab" data-tab="2">Tab 3</div>
     </div>
-    <div class="content-container">
-        <div class="left-tabs">
-            <ul>
-                <li class="active">Home</li>
-                <li>Projects</li>
-                <li>Resources</li>
-                <li>Contact</li>
-            </ul>
-        </div>
-        <div class="main-content">
-            <h2>Welcome to Flipper Zero Hub</h2>
-            <p>Explore content, projects, and resources related to Flipper Zero. Use the tabs on the left to navigate!</p>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <div class="tab-content" data-content="0">Content for Tab 1</div>
+    <div class="tab-content" data-content="1">Content for Tab 2</div>
+    <div class="tab-content" data-content="2">Content for Tab 3</div>
+  </div>
+  <script src="scripts.js"></script>
 </body>
 </html>
