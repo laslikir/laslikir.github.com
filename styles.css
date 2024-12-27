@@ -1,87 +1,85 @@
 /* General Styles */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  header {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  /* Hero Image */
-  .hero {
-    position: relative;
-    text-align: center;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 1200px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .hero img {
-    width: 100%;
-    transition: transform 0.3s ease;
-  }
-  
-  .hero img:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-  }
-  
-  /* Content Section */
-  .content {
-    width: 80%;
-    max-width: 1000px;
-    margin: 20px auto;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  }
-  
-  .tabs {
-    display: flex;
-    background-color: #eee;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .tab {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-    transition: background-color 0.3s, box-shadow 0.3s;
-  }
-  
-  .tab:hover {
-    background-color: #ddd;
-  }
-  
-  .tab.active {
-    background-color: #fff;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .tab-content {
-    padding: 20px;
-    display: none;
-  }
-  
-  .tab-content.active {
-    display: block;
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  text-align: center;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+canvas {
+  width: 100%;
+  height: 300px;
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Content Section */
+.content {
+  width: 80%;
+  max-width: 1000px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.tab:hover {
+  background-color: #ddd;
+}
+
+.tab.active {
+  background-color: #fff;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+  padding: 20px;
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
