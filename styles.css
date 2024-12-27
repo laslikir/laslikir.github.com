@@ -22,7 +22,7 @@ h1, h2, p {
   max-width: 800px;
   z-index: 10; /* Ensure tabs are above the particle canvas */
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.8); /* Slight black background for the tab content area */
+  background-color: #222; /* Solid background for the tab content area */
   border-radius: 10px;
   padding: 20px;
 }
@@ -59,7 +59,7 @@ h1, h2, p {
 .tab-content {
   display: none;
   padding: 20px;
-  background-color: #222; /* Solid background color for the content */
+  background-color: #333; /* Solid background color for the content */
   border-radius: 5px;
   margin-top: 20px;
   color: white;
