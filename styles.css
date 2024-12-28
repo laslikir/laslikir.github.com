@@ -99,7 +99,7 @@ body {
 
 /* Panel Header */
 .panel-header {
-  background-color: #4C2F68; /* Dark purple background for title */
+  background-color: #1c1d24; /* Match the title background to the main site background */
   color: #fff; /* White text for the title */
   padding: 10px 15px;
   border-radius: 8px 8px 0 0; /* Rounded corners at the top */
@@ -113,7 +113,7 @@ body {
   width: 100%;
   max-height: 200px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0; /* Remove rounding from the top corners of the image */
   margin-bottom: 0; /* Remove margin between image and text */
 }
 
