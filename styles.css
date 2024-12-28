@@ -10,11 +10,13 @@ body {
   background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
+  margin: 0 20px; /* Add margin to prevent content from touching the page edges */
 }
 
 /* Container to center content */
 .container {
-  width: 80%;
+  width: 100%;
+  max-width: 1200px; /* You can adjust the max width to your preference */
   margin: 0 auto;
   padding: 20px;
 }
@@ -63,6 +65,11 @@ body {
   padding: 40px 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
+}
+
+.full-width .container {
+  width: 100%; /* Full width inside the container */
+  padding: 0;
 }
 
 .full-width h2 {
@@ -130,23 +137,16 @@ body {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .container {
-      width: 90%;
-  }
-
-  .three-containers {
-      grid-template-columns: 1fr; /* Stack items vertically on mobile */
-  }
-
-  .two-containers {
-      grid-template-columns: 1fr; /* Stack items vertically on mobile */
-  }
-
   .header nav ul {
       gap: 10px;
   }
 
   .header nav a {
       padding: 8px 16px; /* Slightly smaller padding on mobile */
+  }
+
+  /* Adjust for smaller containers if necessary */
+  .three-containers, .two-containers {
+      grid-template-columns: 1fr; /* Ensure they stack on mobile */
   }
 }
