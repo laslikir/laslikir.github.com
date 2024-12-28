@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #1d1d1d; /* Dark grey background */
+  background-color: #272244; /* Dark grey background */
   color: var(--space-cadet); /* Dark text (space cadet) for readability */
 }
 
@@ -18,7 +18,7 @@ body {
   --sky-magenta: #C968AD;
   --finn: #4C2F68;
   --space-cadet: #272244;
-  --panel-bg: #2c2c2c; /* Dark grey for panels */
+  --panel-bg: #aaaaaa; /* Dark grey for panels */
   --panel-border: #8D5396; /* Plum for panel border */
 }
 
