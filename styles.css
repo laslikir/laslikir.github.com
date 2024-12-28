@@ -11,21 +11,9 @@ body {
   color: var(--space-cadet); /* Dark text color */
 }
 
-/* Define custom properties (CSS Variables) for easy color management */
-:root {
-  --plum: #8D5396;
-  --dark-purple: #120F27;
-  --sky-magenta: #C968AD;
-  --finn: #4C2F68;
-  --space-cadet: #272244;
-  --panel-bg: #F1E1E1; /* Light beige/pink panel background */
-  --panel-border: #4C2F68; /* Dark purple border */
-  --nav-button-bg: #4F5D75; /* Dark grey/blue for nav button */
-}
-
 /* Header Section */
 .header {
-  padding: 20px 0;
+  padding: 0;
   position: relative;
 }
 
@@ -48,7 +36,6 @@ body {
 .logo img {
   height: 40px; /* Adjust logo size */
   width: auto; /* Maintain aspect ratio */
-  margin-right: 20px; /* Space between logo and nav links */
 }
 
 /* Navigation Links */
@@ -114,7 +101,7 @@ body {
   color: #fff; /* White text for the title */
   padding: 10px 15px;
   border-radius: 8px 8px 0 0; /* Rounded corners at the top */
-  margin-bottom: 15px; /* Space between header and content */
+  margin-bottom: 0; /* Remove space between title and image */
   font-size: 1.3rem;
   font-weight: bold;
 }
@@ -125,7 +112,7 @@ body {
   max-height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 0; /* Remove margin between image and text */
 }
 
 .panel p {
