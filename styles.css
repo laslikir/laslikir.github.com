@@ -17,7 +17,7 @@ body {
   position: relative;
 }
 
-/* Transparent Navbar */
+/* Transparent Navbar - Fix shadow and border */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -29,7 +29,8 @@ body {
   padding: 10px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Shadow for floating effect */
+  box-shadow: none; /* Remove the shadow from navbar */
+  border: none; /* Ensure there is no border */
 }
 
 /* Logo Styling */
@@ -83,8 +84,8 @@ body {
 
 /* Panel styling */
 .panel {
-  background-color: var(--panel-bg); /* Light beige/pinkish color for panels */
-  border: 2px solid var(--panel-border); /* Dark purple border */
+  background-color: #F1E1E1; /* Light beige/pinkish color for panels */
+  border: 2px solid #4C2F68; /* Dark purple border */
   border-radius: 12px;
   padding: 20px;
   text-align: center;
@@ -93,11 +94,12 @@ body {
   overflow: hidden;
   flex: 1 1 30%;
   min-width: 280px;
+  color: #333; /* Dark text color for readability */
 }
 
 /* Panel Header */
 .panel-header {
-  background-color: var(--space-cadet); /* Darker header background */
+  background-color: #4C2F68; /* Dark purple background for title */
   color: #fff; /* White text for the title */
   padding: 10px 15px;
   border-radius: 8px 8px 0 0; /* Rounded corners at the top */
