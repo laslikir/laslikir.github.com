@@ -10,13 +10,13 @@ body {
   background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
-  margin: 0 20px; /* Add margin to prevent content from touching the page edges */
+  margin: 0 20px; /* Prevent content from touching the page edges */
 }
 
 /* Container to center content */
 .container {
   width: 100%;
-  max-width: 1200px; /* You can adjust the max width to your preference */
+  max-width: 1200px; /* Adjust based on desired content width */
   margin: 0 auto;
   padding: 20px;
 }
@@ -68,8 +68,8 @@ body {
 }
 
 .full-width .container {
-  width: 100%; /* Full width inside the container */
-  padding: 0;
+  width: 100%;
+  padding: 0; /* Remove padding inside the full-width container */
 }
 
 .full-width h2 {
@@ -142,11 +142,4 @@ body {
   }
 
   .header nav a {
-      padding: 8px 16px; /* Slightly smaller padding on mobile */
-  }
-
-  /* Adjust for smaller containers if necessary */
-  .three-containers, .two-containers {
-      grid-template-columns: 1fr; /* Ensure they stack on mobile */
-  }
-}
+      padding: 8px 16p
