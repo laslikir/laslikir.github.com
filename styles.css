@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,137 +9,104 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
-  line-height: 1.6;
-  margin: 0 20px; /* Prevent content from touching the page edges */
 }
 
-/* Container to center content */
-.container {
-  width: 100%;
-  max-width: 1200px; /* Adjust based on desired content width */
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Header and Navbar */
+/* Header */
 .header {
-  background: #2c3e50; /* Primary color */
-  color: white;
+  background-color: #2c3e50;
   padding: 20px 0;
 }
 
-.header-container {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.header .logo img {
-  max-width: 100%;
-}
-
-.header nav ul {
-  list-style-type: none;
+.nav-links {
   display: flex;
   gap: 20px;
 }
 
-.header nav a {
-  color: white;
+.nav-links a {
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
-  background-color: #e74c3c; /* Secondary color */
   padding: 10px 20px;
-  border-radius: 25px; /* Soft rounded edges */
+  background-color: #e74c3c;
+  border-radius: 25px;
   transition: background-color 0.3s ease;
 }
 
-.header nav a:hover {
-  background-color: #c0392b; /* Darker red on hover */
+.nav-links a:hover {
+  background-color: #c0392b;
 }
 
-/* Full-width sections */
-.full-width {
-  width: 100%;
-  background: #fff;
-  padding: 40px 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
+/* Flex Panels Layout */
+.flex-panels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.full-width .container {
-  width: 100%;
-  padding: 0; /* Remove padding inside the full-width container */
-}
-
-.full-width h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-/* Smaller containers (Three and Two side by side) */
-.three-containers, .two-containers {
-  display: grid;
-  gap: 30px;
-  padding: 40px 0;
-}
-
-/* Three containers side-by-side */
-.three-containers {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-/* Two containers side-by-side */
-.two-containers {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* Container styling */
-.content-box {
-  background: white;
-  border: 2px solid #e74c3c; /* Secondary color for borders */
+/* Individual Panel Styling */
+.panel {
+  background-color: #fff;
+  border: 2px solid #e74c3c;
   border-radius: 12px;
+  width: calc(33.333% - 20px); /* 3 columns, adjust for spacing */
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
   text-align: center;
-  height: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
-.content-box img {
-  max-width: 100%;
-  border-radius: 8px;
+.panel img {
+  width: 100%;
+  max-height: 200px;
   object-fit: cover;
+  border-radius: 8px;
   margin-bottom: 15px;
 }
 
-.content-box h3 {
+.panel h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
-.content-box p {
+.panel p {
   font-size: 1.1rem;
 }
 
-/* Recessed hover effect */
-.content-box:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+.panel:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer */
 .footer {
-  background: #2c3e50; /* Primary color */
+  background-color: #2c3e50;
   color: white;
-  padding: 20px 0;
+  padding: 20px;
   text-align: center;
 }
 
-/* Responsive Styles */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .header nav ul {
-      gap: 10px;
+  .panel {
+      width: calc(50% - 10px); /* 2 columns on medium screens */
   }
+}
 
-  .header nav a {
-      padding: 8px 16p
+@media (max-width: 480px) {
+  .panel {
+      width: 100%; /* Stacks vertically on small screens */
+  }
+}

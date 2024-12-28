@@ -3,85 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styled Layout</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+    <title>Flex Panels Layout</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header class="header">
-        <div class="container header-container">
-            <!-- Logo on the left -->
-            <div class="logo">
-                <img src="https://via.placeholder.com/120x40?text=Logo" alt="Logo">
+        <nav class="navbar">
+            <div class="logo">Logo</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
             </div>
-            <!-- Navbar with buttons on the right -->
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        </nav>
     </header>
 
-    <!-- Full-width section wrapped in a container -->
-    <section class="full-width">
-        <div class="container">
-            <h2>Full-width Content</h2>
-            <p>This is a full-width container with a consistent layout.</p>
-        </div>
-    </section>
-
-    <!-- Three smaller containers side by side -->
-    <section class="three-containers">
-        <div class="container">
-            <div class="content-box">
-                <img src="https://via.placeholder.com/300x150" alt="Tile Image">
-                <h3>Container 1</h3>
-                <p>Content for the first container.</p>
+    <main>
+        <section class="flex-panels">
+            <div class="panel">
+                <img src="https://via.placeholder.com/300" alt="Panel Image">
+                <h3>Panel 1</h3>
+                <p>This is the first panel description.</p>
             </div>
-            <div class="content-box">
-                <img src="https://via.placeholder.com/300x150" alt="Tile Image">
-                <h3>Container 2</h3>
-                <p>Content for the second container.</p>
+            <div class="panel">
+                <img src="https://via.placeholder.com/300" alt="Panel Image">
+                <h3>Panel 2</h3>
+                <p>This is the second panel description.</p>
             </div>
-            <div class="content-box">
-                <img src="https://via.placeholder.com/300x150" alt="Tile Image">
-                <h3>Container 3</h3>
-                <p>Content for the third container.</p>
+            <div class="panel">
+                <img src="https://via.placeholder.com/300" alt="Panel Image">
+                <h3>Panel 3</h3>
+                <p>This is the third panel description.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Two smaller containers side by side -->
-    <section class="two-containers">
-        <div class="container">
-            <div class="content-box">
-                <img src="https://via.placeholder.com/300x150" alt="Tile Image">
-                <h3>Container 4</h3>
-                <p>Content for the fourth container.</p>
-            </div>
-            <div class="content-box">
-                <img src="https://via.placeholder.com/300x150" alt="Tile Image">
-                <h3>Container 5</h3>
-                <p>Content for the fifth container.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Another full-width section wrapped in a container -->
-    <section class="full-width">
-        <div class="container">
-            <h2>Another Full-width Content</h2>
-            <p>This is another full-width container, similar to the first one.</p>
-        </div>
-    </section>
+            <!-- Add more panels as needed -->
+        </section>
+    </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 My Website. All Rights Reserved.</p>
-        </div>
+        <p>Footer Content</p>
     </footer>
+
 </body>
 </html>
