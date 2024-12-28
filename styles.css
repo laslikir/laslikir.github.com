@@ -7,8 +7,8 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #272244; /* Dark grey background */
-  color: var(--space-cadet); /* Dark text (space cadet) for readability */
+  background-color: #170F27; /* Dark purple background */
+  color: var(--space-cadet); /* Dark text color */
 }
 
 /* Define custom properties (CSS Variables) for easy color management */
@@ -18,8 +18,9 @@ body {
   --sky-magenta: #C968AD;
   --finn: #4C2F68;
   --space-cadet: #272244;
-  --panel-bg: #aaaaaa; /* Dark grey for panels */
-  --panel-border: #8D5396; /* Plum for panel border */
+  --panel-bg: #F1E1E1; /* Light beige/pink panel background */
+  --panel-border: #4C2F68; /* Dark purple border */
+  --nav-button-bg: #4F5D75; /* Dark grey/blue for nav button */
 }
 
 /* Header */
@@ -28,13 +29,18 @@ body {
   padding: 20px 0;
 }
 
+/* Sticky Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: var(--dark-purple);
+  z-index: 1000;
+  padding: 10px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .nav-links {
@@ -47,9 +53,10 @@ body {
   text-decoration: none;
   font-weight: bold;
   padding: 10px 20px;
-  background-color: var(--sky-magenta); /* Sky Magenta for button background */
-  border-radius: 25px;
+  background-color: var(--nav-button-bg); /* Dark grey/blue for button background */
+  border-radius: 0px; /* No rounded corners, sharper buttons */
   transition: background-color 0.3s ease;
+  border: 2px solid transparent; /* No border */
 }
 
 .nav-links a:hover {
@@ -80,12 +87,12 @@ body {
 
 /* Panel styling */
 .panel {
-  background-color: var(--panel-bg); /* Dark grey background for panels */
-  border: 2px solid var(--panel-border); /* Plum border for recessed look */
+  background-color: var(--panel-bg); /* Light beige/pinkish color for panels */
+  border: 2px solid var(--panel-border); /* Dark purple border */
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2); /* Recessed shadow */
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.2); /* Recessed shadow */
   transition: box-shadow 0.3s ease;
   overflow: hidden;
   flex: 1 1 30%;
