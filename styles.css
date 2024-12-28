@@ -61,7 +61,9 @@ body {
   background-color: #fff;
   border: 2px solid #e74c3c;
   border-radius: 12px;
-  width: calc(33.333% - 20px); /* 3 columns, adjust for spacing */
+  flex: 1 1 33.33%; /* Flex-grow, Flex-shrink, Flex-basis */
+  min-width: 250px; /* Minimum width to prevent collapsing */
+  max-width: 33.33%; /* Limit width to ensure 3 columns on larger screens */
   padding: 20px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -101,12 +103,12 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .panel {
-      width: calc(50% - 10px); /* 2 columns on medium screens */
+      flex: 1 1 50%; /* 2 columns on medium screens */
   }
 }
 
 @media (max-width: 480px) {
   .panel {
-      width: 100%; /* Stacks vertically on small screens */
+      flex: 1 1 100%; /* Stacks vertically on small screens */
   }
 }
