@@ -48,34 +48,66 @@ body {
   text-decoration: underline;
 }
 
-/* Grid Layout for Main Content */
-.main-content {
+/* Full-width sections */
+.full-width {
+  width: 100%;
+  background: #fff;
+  padding: 40px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.full-width h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* Smaller containers - Three containers side by side */
+.three-containers {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive Grid */
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
   padding: 40px 0;
 }
 
+.two-containers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 40px 0;
+}
+
+/* Container styling */
 .content-box {
   background: white;
   border: 2px solid #ddd;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+  text-align: center;
+  height: 100%;
 }
 
-.content-box:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.content-box h2 {
-  font-size: 1.8rem;
+.content-box img {
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
   margin-bottom: 15px;
+}
+
+.content-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .content-box p {
   font-size: 1.1rem;
+}
+
+/* Recessed hover effect */
+.content-box:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
@@ -90,5 +122,13 @@ body {
 @media (max-width: 768px) {
   .container {
       width: 90%;
+  }
+
+  .three-containers {
+      grid-template-columns: 1fr;
+  }
+
+  .two-containers {
+      grid-template-columns: 1fr;
   }
 }
