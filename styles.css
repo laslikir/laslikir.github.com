@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Ensures consistent box model across browsers */
 }
 
 body {
@@ -67,6 +67,7 @@ body {
   justify-content: center; /* Center single panels */
 }
 
+/* Panel styling */
 .panel {
   background-color: #fff;
   border: 2px solid #e74c3c;
@@ -76,8 +77,8 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   overflow: hidden;
-  flex: 1;
-  min-width: 280px; /* Prevent shrinking too much */
+  flex: 1 1 30%; /* Default width for 3-panel row */
+  min-width: 280px; /* Prevent panels from shrinking too small */
 }
 
 /* Image Styling */
@@ -102,20 +103,9 @@ body {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Specific Layout for Panel Rows */
-.panel-row > .panel {
-  flex: 1;
-}
-
 /* 1 Panel Row (single panel) */
 .panel-row.single .panel {
   flex: 0 0 100%; /* Single panel should span full width */
-}
-
-/* 3 Panels Row (three panels) */
-.panel-row:not(.single) .panel {
-  flex: 1; /* Each panel takes equal width */
-  min-width: 300px; /* Ensure that panels don’t get too small */
 }
 
 /* Responsive Design */
