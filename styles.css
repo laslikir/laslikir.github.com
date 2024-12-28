@@ -23,9 +23,9 @@ body {
   --nav-button-bg: #4F5D75; /* Dark grey/blue for nav button */
 }
 
-/* Header */
+/* Header Section */
 .header {
-  background-color: var(--dark-purple); /* Dark Purple for the header background */
+  background-color: #1c1d24; /* Match the navbar background */
   padding: 20px 0;
 }
 
