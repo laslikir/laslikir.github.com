@@ -108,6 +108,17 @@ body {
   min-width: 280px;
 }
 
+/* Panel Header */
+.panel-header {
+  background-color: var(--space-cadet); /* Darker header background */
+  color: #fff; /* White text for the title */
+  padding: 10px 15px;
+  border-radius: 8px 8px 0 0; /* Rounded corners at the top */
+  margin-bottom: 15px; /* Space between header and content */
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 /* Image Styling */
 .panel img {
   width: 100%;
@@ -115,11 +126,6 @@ body {
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 15px;
-}
-
-.panel h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
 }
 
 .panel p {
@@ -156,15 +162,6 @@ body {
 .footer {
   background-color: var(--dark-purple); /* Dark Purple for footer background */
   color: #fff;
-  padding: 20px;
   text-align: center;
-  margin-top: 40px;
-}
-
-/* Gradient Background Example */
-.gradient-bg {
-  background: var(--gradient-top);
-  color: #fff;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 20px 0;
 }
