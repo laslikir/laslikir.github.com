@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #ecf0f1; /* Light background */
+  background-color: #1d1d1d; /* Dark grey background */
   color: var(--space-cadet); /* Dark text (space cadet) for readability */
 }
 
@@ -18,6 +18,8 @@ body {
   --sky-magenta: #C968AD;
   --finn: #4C2F68;
   --space-cadet: #272244;
+  --panel-bg: #2c2c2c; /* Dark grey for panels */
+  --panel-border: #8D5396; /* Plum for panel border */
 }
 
 /* Header */
@@ -78,12 +80,12 @@ body {
 
 /* Panel styling */
 .panel {
-  background-color: #fff; /* White background for panels */
-  border: 2px solid var(--plum); /* Plum border */
+  background-color: var(--panel-bg); /* Dark grey background for panels */
+  border: 2px solid var(--panel-border); /* Plum border for recessed look */
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2); /* Recessed shadow */
   transition: box-shadow 0.3s ease;
   overflow: hidden;
   flex: 1 1 30%;
@@ -109,7 +111,7 @@ body {
 }
 
 .panel:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 6px 10px rgba(0, 0, 0, 0.4), 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
 /* 1 Panel Row */
