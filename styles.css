@@ -44,6 +44,14 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow to distinguish navbar */
 }
 
+/* Logo Styling */
+.logo img {
+  height: 40px; /* Adjust logo size */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 20px; /* Space between logo and nav links */
+}
+
+/* Navigation Links */
 .nav-links {
   display: flex;
   gap: 20px;

@@ -3,80 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flex Panels Layout</title>
+    <title>Your Site</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header class="header">
         <nav class="navbar">
-            <div class="logo"><img src="imgs/P_Image (1).jpg">logo01.jpgLogo</div>
+            <!-- Logo on the left -->
+            <a href="#" class="logo">
+                <img src="imgs/logo01.jpg" alt="Site Logo">
+            </a>
+            <!-- Navigation links on the right -->
             <div class="nav-links">
                 <a href="#">Home</a>
                 <a href="#">About</a>
+                <a href="#">Services</a>
                 <a href="#">Contact</a>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section class="flex-panels">
-            <!-- Single Panel Row -->
-            <div class="panel-row single">
-                <div class="panel">
-                    <img src="imgs/P_Image (1).jpg" alt="Panel 1">
-                    <h3>Single Panel</h3>
-                    <p>This is a single panel spanning the full width of the panel section.</p>
-                </div>
+    <div class="flex-panels">
+        <!-- Panels layout will go here -->
+        <!-- Example panel -->
+        <div class="panel-row">
+            <div class="panel">
+                <img src="imgs/P_Image (1).jpg" alt="Image 1">
+                <h3>Panel 1</h3>
+                <p>Some content...</p>
             </div>
-
-            <!-- 3 Panels Row -->
-            <div class="panel-row">
-                <div class="panel">
-                    <img src="imgs/P_Image (2).jpg" alt="Panel 2">
-                    <h3>Panel 1</h3>
-                    <p>This is the first panel description.</p>
-                </div>
-                <div class="panel">
-                    <img src="imgs/P_Image (3).jpg" alt="Panel 3">
-                    <h3>Panel 2</h3>
-                    <p>This is the second panel description.</p>
-                </div>
-                <div class="panel">
-                    <img src="imgs/P_Image (4).jpg" alt="Panel 4">
-                    <h3>Panel 3</h3>
-                    <p>This is the third panel description.</p>
-                </div>
+            <div class="panel">
+                <img src="imgs/P_Image (2).jpg" alt="Image 2">
+                <h3>Panel 2</h3>
+                <p>Some content...</p>
             </div>
-
-            <!-- 2 Panels Row -->
-            <div class="panel-row">
-                <div class="panel">
-                    <img src="imgs/P_Image (5).jpg" alt="Panel 5">
-                    <h3>Panel 4</h3>
-                    <p>This is the fourth panel description.</p>
-                </div>
-                <div class="panel">
-                    <img src="imgs/P_Image (6).jpg" alt="Panel 6">
-                    <h3>Panel 5</h3>
-                    <p>This is the fifth panel description.</p>
-                </div>
+            <div class="panel">
+                <img src="imgs/P_Image (3).jpg" alt="Image 3">
+                <h3>Panel 3</h3>
+                <p>Some content...</p>
             </div>
+        </div>
 
-            <!-- Single Panel Row -->
-            <div class="panel-row single">
-                <div class="panel">
-                    <img src="imgs/P_Image (7).jpg" alt="Panel 7">
-                    <h3>Single Panel 2</h3>
-                    <p>This is another single panel spanning the full width of the panel section.</p>
-                </div>
-            </div>
-
-        </section>
-    </main>
+        <!-- Additional panels can be added here -->
+    </div>
 
     <footer class="footer">
-        <p>Footer Content</p>
+        <p>Footer content goes here.</p>
     </footer>
 
 </body>
