@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #170F27; /* Dark purple background */
+  background-color: #1c1d24; /* Dark grey background */
   color: var(--space-cadet); /* Dark text color */
 }
 
@@ -36,11 +36,12 @@ body {
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: var(--dark-purple);
+  background-color: #1c1d24; /* Navbar background matching the page */
   z-index: 1000;
   padding: 10px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow to distinguish navbar */
 }
 
 .nav-links {
@@ -54,7 +55,7 @@ body {
   font-weight: bold;
   padding: 10px 20px;
   background-color: var(--nav-button-bg); /* Dark grey/blue for button background */
-  border-radius: 0px; /* No rounded corners, sharper buttons */
+  border-radius: 8px; /* Softer, rounded corners */
   transition: background-color 0.3s ease;
   border: 2px solid transparent; /* No border */
 }
