@@ -1,4 +1,4 @@
-/* Global Reset */
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,150 +7,60 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #1c1d24; /* Dark grey background */
-  color: var(--space-cadet); /* Dark text color */
-}
-
-/* Header Section */
-.header {
-  padding: 0;
-  position: relative;
-}
-
-/* Transparent Navbar - Fix shadow and border */
-.navbar {
+  background-color: #f0f0f0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  background-color: transparent; /* Make navbar transparent */
-  z-index: 1000;
-  padding: 10px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-shadow: none; /* Remove the shadow from navbar */
-  border: none; /* Ensure there is no border */
-}
-
-/* Logo Styling */
-.logo img {
-  height: 40px; /* Adjust logo size */
-  width: auto; /* Maintain aspect ratio */
-}
-
-/* Navigation Links */
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: #fff; /* White text for links */
-  text-decoration: none;
-  font-weight: bold;
-  padding: 10px 20px;
-  background-color: var(--nav-button-bg); /* Dark grey/blue for button background */
-  border-radius: 8px; /* Softer, rounded corners */
-  transition: background-color 0.3s ease;
-  border: 2px solid transparent; /* No border */
-}
-
-.nav-links a:hover {
-  background-color: var(--plum); /* Plum color for hover effect */
-}
-
-/* Flex Panels Layout */
-.flex-panels {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Panel Row Layout */
-.panel-row {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.panel-row.single {
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-/* Panel styling */
-.panel {
-  background-color: #F1E1E1; /* Light beige/pinkish color for panels */
-  border: 2px solid #4C2F68; /* Dark purple border */
-  border-radius: 12px;
-  padding: 20px;
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.3), 0 6px 15px rgba(0, 0, 0, 0.4); /* Increased inset shadow for recessed effect */
-  transition: box-shadow 0.3s ease;
-  overflow: hidden;
-  flex: 1 1 30%;
-  min-width: 280px;
-  color: #333; /* Dark text color for readability */
 }
 
-/* Panel Header */
-.panel-header {
-  background-color: #1c1d24; /* Match the title background to the main site background */
-  color: #fff; /* White text for the title */
-  padding: 10px 15px;
-  border-radius: 8px 8px 0 0; /* Rounded corners at the top */
-  margin-bottom: 0; /* Remove space between title and image */
-  font-size: 1.3rem;
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+input[type="number"] {
+  padding: 5px;
+  margin: 5px;
+  width: 60px;
+  text-align: center;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#result {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 1.5rem;
   font-weight: bold;
-}
-
-/* Image Styling */
-.panel img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 0; /* Remove rounding from the top corners of the image */
-  margin-bottom: 0; /* Remove margin between image and text */
-}
-
-.panel p {
-  font-size: 1.1rem;
-}
-
-.panel:hover {
-  box-shadow: inset 0 6px 18px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover for depth */
-}
-
-/* 1 Panel Row */
-.panel-row.single .panel {
-  flex: 0 0 100%;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .panel-row {
-      flex-direction: column;
-  }
-
-  .panel {
-      flex: 1 1 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .panel {
-      min-width: 100%;
-  }
-}
-
-/* Footer Section */
-.footer {
-  background-color: var(--dark-purple); /* Dark Purple for footer background */
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
+  color: red;
 }
